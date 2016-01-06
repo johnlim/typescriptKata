@@ -1,0 +1,39 @@
+###############################################################################
+# OS X - https://github.com/github/gitignore/blob/master/Global/OSX.gitignore #
+###############################################################################
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+###############################################################################
+# vim - https://github.com/github/gitignore/blob/master/Global/vim.gitignore  #
+###############################################################################
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+node_modules
+!tools/typings
+tools/typings/*
+!tools/typings/tsd.d.ts
+!tools/typings/typescriptApp.d.ts
+**/bower_packages
+
+# all generated JS
+src/js
+src/app/**/*.js
+src/app/**/*.js.map
+
