@@ -20,6 +20,10 @@
     "gulp-typescript": "^2.8.0",
     "gulp-tsd": "^0.0.4",
     "tsd": "^0.6.3",
-    "superstatic": "^1.2.3" 
+    "superstatic": "^1.2.3",
+    "jasmine-core": "2.3.4",
+    "karma": "0.13.19",
+    "karma-jasmine": "0.3.6",
+    "karma-phantomjs-launcher": "^0.1.4"
   } 
 }

@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     Config = require('./gulpfile.config'),
     tsProject = tsc.createProject('tsconfig.json'),
     browserSync = require('browser-sync'),
-    superstatic = require( 'superstatic' );
+    superstatic = require( 'superstatic' ),
+    Server = require('karma').Server;
 
 var config = new Config();
 
@@ -33,7 +34,9 @@ var config = new Config();
  * Lint all custom TypeScript files.
  */
 gulp.task('ts-lint', function () {
-    return gulp.src(config.allTypeScript).pipe(tslint()).pipe(tslint.report('prose'));
+    return gulp.src(config.allTypeScript)
+               .pipe(tslint())
+               .pipe(tslint.report('prose'));
 });
 
 /**
@@ -88,6 +91,17 @@ gulp.task('serve', ['compile-ts', 'watch'], function() {
       middleware: superstatic({ debug: false})
     }
   });
+});
+
+/**
+ * Run test once and exit
+ */
+gulp.task('karma-test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    logLevel: 'DEBUG',
+    singleRun: true
+  }, done).start();
 });
 
 gulp.task('default', ['ts-lint', 'compile-ts']);
